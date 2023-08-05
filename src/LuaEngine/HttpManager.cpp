@@ -138,8 +138,8 @@ void HttpManager::HttpWorkerThread()
 
             httplib::Client cli(host);
             cli.set_connection_timeout(0, 3000000); // 3 seconds
-            cli.set_read_timeout(5, 0); // 5 seconds
-            cli.set_write_timeout(5, 0); // 5 seconds
+            cli.set_read_timeout(15, 0); // 15 seconds
+            cli.set_write_timeout(15, 0); // 15 seconds
 
             httplib::Result res = DoRequest(cli, req, path);
             httplib::Error err = res.error();
@@ -162,8 +162,8 @@ void HttpManager::HttpWorkerThread()
                 }
                 httplib::Client cli2(host);
                 cli2.set_connection_timeout(0, 3000000); // 3 seconds
-                cli2.set_read_timeout(5, 0); // 5 seconds
-                cli2.set_write_timeout(5, 0); // 5 seconds
+                cli2.set_read_timeout(15, 0); // 15 seconds
+                cli2.set_write_timeout(15, 0); // 15 seconds
                 res = DoRequest(cli2, req, path);
             }
 
